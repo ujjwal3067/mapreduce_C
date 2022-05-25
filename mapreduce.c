@@ -29,6 +29,16 @@ void Reduce(char *key, Getter get_next, int partition_number) {
     printf("%s %d\n", key, count);
 }
 
+// First entry point of the computation 
+void
+MR_Run(int argc, char *argv[], 
+
+	    Mapper map, int num_mappers, 
+	    Reducer reduce, int num_reducers, 
+        Partitioner partition) { 
+
+}
+
 int main(int argc, char *argv[]) {
     MR_Run(argc, argv, Map, 10, Reduce, 10, MR_DefaultHashPartition);
 }

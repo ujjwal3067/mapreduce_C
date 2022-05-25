@@ -27,7 +27,7 @@ number of reduce worker threads
 
 ## notes : 
 - `map()` and `reduce()`  are user functions 
--  
+- `MR_Emit()` emits intermediate keys after map function   
 
 
 

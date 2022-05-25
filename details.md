@@ -54,7 +54,7 @@ key K and passes them to the `Reduce()` function."
 "The `Reduce()` function, also written by the user, accepts an intermediate
 key K and a set of values for that key. It merges together these values to
 form a possibly smaller set of values; typically just zero or one output value
-is produced per `Reduce()` invocation. The intermediate values are supplied to
+is produced per `Reduce()` invocation. The intermediate  are supplied to
 the user's reduce function via an iterator."
 
 A classic example, written here in pseudocode, shows how to count the number
