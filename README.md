@@ -9,9 +9,29 @@
 $ ./build.sh 
 ```
 ## Running map reduce
-- 
+```sh
+input filename
+number of map worker threads
+number of reduce worker threads
+
+```
 
 
 ## further details
 
 > This is ostep-project  on map-reduce. original repo : [ostep-projects, 3 easy pieces](https://github.com/remzi-arpacidusseau/ostep-projects) 
+
+
+
+
+
+## notes : 
+- `map()` and `reduce()`  are user functions 
+-  
+
+
+
+
+# References
+- [mapreduce in Go](https://github.com/abhi-2110/MapReduce) 
+
