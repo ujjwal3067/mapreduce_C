@@ -5,17 +5,10 @@
 #include "mapreduce.h"
 
 
-
-
-void init_parition(Partition *part) { 
-
+void init_Disk(Disk* disk, int count) { 
+    disk->parition_cout = count ;
+    disk->paritions  =  (partition *)calloc(count , sizeof(*partition));     // this has to point to void
 }
-
-void init_disk(Disk *disk, int count) { 
-    disk->partition_count = count; 
-    disk->partitions = malloc(count * sizesof()) 
-}
-
 
 // Code for testing purpose
 void Map(char *file_name) {
@@ -62,6 +55,14 @@ MR_Run(int argc, char *argv[],
 	    Reducer reduce, int num_reducers, 
         Partitioner partition) { 
 
+// initialize the threadpool 
+    // create threadpool for mapper
+    // create threadpool for reducr
+  
+// intialize the disk for storing key and value pair 
+// Initantiate the map reduce tasks ( start all threads )
+
+// wait for all reduce task to finish
 }
 
 

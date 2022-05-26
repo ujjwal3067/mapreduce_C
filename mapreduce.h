@@ -3,7 +3,12 @@
 
 
 // contains dynamically allocated list
-struct Partition { 
+struct entry { 
+    int key ; 
+    int count ;
+};
+
+struct partition { 
     int count ; 
     int list[] ; 
 };
@@ -13,6 +18,7 @@ struct Disk {
     int parition_count ;
     Parition paritions[] ; 
 };
+
 
 // Different function pointer types used by MR
 typedef char *(*Getter)(char *key, int partition_number);
