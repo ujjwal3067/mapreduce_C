@@ -16,6 +16,7 @@
 struct Disk disk; 
 
 void add_partition(struct Part * partitions, int partition_num, struct Pair * pair){ 
+    assert(partition_num >0);
 
     struct Part * partition =  &partitions[partition_num]; // get the particular partition
     int size = partition-> size ;  
@@ -27,7 +28,10 @@ void add_partition(struct Part * partitions, int partition_num, struct Pair * pa
     *(partition -> list + size )  = *pair ;  
 }
 
+
+
 void add_pair(struct Part * partitions, int partition_num, char * key , int value) { 
+    assert(partition_num > 0 );
 
     struct Pair * tmp = (struct Pair *)malloc(sizeof(struct Pair)) ;
     if (tmp == NULL) { 
@@ -44,6 +48,7 @@ void add_pair(struct Part * partitions, int partition_num, char * key , int valu
  * Disk = pointer to disk struct 
  */
 void init(int count, struct Disk *disk) { 
+    assert(count > 0); 
     disk -> count = count ; 
     disk -> partitions = (struct Part*)malloc(count * sizeof(struct Part));
     if (disk -> partitions == NULL) { 

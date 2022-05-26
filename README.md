@@ -46,7 +46,6 @@ number of reduce worker threads
 # TODO
 - Optimization
     - [ ] Replace paritions with hashtable implementation  (  )
-
-
-
-
+- [  ] Iterator to iterate over paritions list 
+- [  ] Getter method to get all pairs of key value pair  
+- [  ] Threadpool for reducer and mapper threads
