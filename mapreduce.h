@@ -1,25 +1,6 @@
 #ifndef __mapreduce_h__
 #define __mapreduce_h__
 
-
-// contains dynamically allocated list
-struct entry { 
-    int key ; 
-    int count ;
-};
-
-struct partition { 
-    int count ; 
-    int list[] ; 
-};
-
-struct Disk { 
-    // contains list of partitions
-    int parition_count ;
-    Parition paritions[] ; 
-};
-
-
 // Different function pointer types used by MR
 typedef char *(*Getter)(char *key, int partition_number);
 typedef void (*Mapper)(char *file_name);

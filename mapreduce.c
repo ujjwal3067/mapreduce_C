@@ -1,14 +1,12 @@
+
 #include <assert.h>
 #include <stdio.h>
+#include <pthread.h>
 #include <stdlib.h>
 #include <string.h>
 #include "mapreduce.h"
+#include "container.h"
 
-
-void init_Disk(Disk* disk, int count) { 
-    disk->parition_cout = count ;
-    disk->paritions  =  (partition *)calloc(count , sizeof(*partition));     // this has to point to void
-}
 
 // Code for testing purpose
 void Map(char *file_name) {
@@ -36,7 +34,7 @@ void Reduce(char *key, Getter get_next, int partition_number) {
 }
 
 void MR_Emit(char *key, char *value) { 
-    //TODO: temporary umimplemented  
+    //TODO:
 }
 
 unsigned long MR_DefaultHashPartition(char *key, int num_partitions) { 
@@ -74,6 +72,4 @@ int main(int argc, char *argv[]) {
     // map and reduce are user defined function ( that uses mapreduce parallelization)  
     MR_Run(argc, argv, Map, 10, Reduce, 10, MR_DefaultHashPartition);
 }
-
-
 
