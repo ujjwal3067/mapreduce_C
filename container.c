@@ -92,7 +92,7 @@ void print_disk(struct Disk *disk) {
 }
 
 
-int main () { 
+/*int test () { 
     init(3 , &disk);
     printf("disk count  = : %d\n", disk.count);
     partition_marker(&disk);
@@ -109,3 +109,4 @@ int main () {
     printf("================\n");
     return  0 ; 
 }
+*/
