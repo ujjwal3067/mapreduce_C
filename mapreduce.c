@@ -4,6 +4,19 @@
 #include <string.h>
 #include "mapreduce.h"
 
+
+
+
+void init_parition(Partition *part) { 
+
+}
+
+void init_disk(Disk *disk, int count) { 
+    disk->partition_count = count; 
+    disk->partitions = malloc(count * sizesof()) 
+}
+
+
 // Code for testing purpose
 void Map(char *file_name) {
     FILE *fp = fopen(file_name, "r");
@@ -29,6 +42,18 @@ void Reduce(char *key, Getter get_next, int partition_number) {
     printf("%s %d\n", key, count);
 }
 
+void MR_Emit(char *key, char *value) { 
+    //TODO: temporary umimplemented  
+}
+
+unsigned long MR_DefaultHashPartition(char *key, int num_partitions) { 
+    unsigned long hash = 5381 ; 
+    int c; 
+    while((c  = *key++) != '\0')
+        hash = hash * 33 + c; 
+    return hash % num_partitions; 
+}
+
 // First entry point of the computation 
 void
 MR_Run(int argc, char *argv[], 
@@ -39,7 +64,13 @@ MR_Run(int argc, char *argv[],
 
 }
 
+
+void on_exit_call(char * message) { 
+    printf("ERROR : %s\n", message);
+}
+
 int main(int argc, char *argv[]) {
+    // map and reduce are user defined function ( that uses mapreduce parallelization)  
     MR_Run(argc, argv, Map, 10, Reduce, 10, MR_DefaultHashPartition);
 }
 

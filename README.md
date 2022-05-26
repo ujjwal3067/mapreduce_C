@@ -26,8 +26,16 @@ number of reduce worker threads
 
 
 ## notes : 
+- assumes that `argv[1]` ... `argv[n-1]` (with `argc` equal to `n`) all contain files names that are passed to mappers
 - `map()` and `reduce()`  are user functions 
 - `MR_Emit()` emits intermediate keys after map function   
+    - Uses data structures that used by both mapper and reducer threads 
+    - mapper threads are used to populate the data structure 
+    - and reducer threads are used to consume the data structures
+    - use read and write lock.
+- What we need : 
+    - Thread pool for mapper threads and reducer threads
+    - Internal Datastructures that is used to pass key value pairs from mapper to reducer 
 
 
 

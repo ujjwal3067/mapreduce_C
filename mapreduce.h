@@ -1,6 +1,19 @@
 #ifndef __mapreduce_h__
 #define __mapreduce_h__
 
+
+// contains dynamically allocated list
+struct Partition { 
+    int count ; 
+    int list[] ; 
+};
+
+struct Disk { 
+    // contains list of partitions
+    int parition_count ;
+    Parition paritions[] ; 
+};
+
 // Different function pointer types used by MR
 typedef char *(*Getter)(char *key, int partition_number);
 typedef void (*Mapper)(char *file_name);
@@ -17,5 +30,6 @@ void MR_Run(int argc, char *argv[],
 	    Mapper map, int num_mappers, 
 	    Reducer reduce, int num_reducers, 
 	    Partitioner partition);
+
 
 #endif // __mapreduce_h__
