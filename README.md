@@ -41,7 +41,6 @@ number of reduce worker threads
 
 
 # References
-- [mapreduce in Go](https://github.com/abhi-2110/MapReduce) 
 
 
 # TODO
