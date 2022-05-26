@@ -10,6 +10,8 @@
 #include<pthread.h>
 #include "main.h"
 
+// NOTE : Untoptimized Disk Code
+// TODO : Use hashmap
 // Global variables
 struct Disk disk; 
 
