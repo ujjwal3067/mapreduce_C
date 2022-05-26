@@ -37,7 +37,7 @@ number of reduce worker threads
     - Thread pool for mapper threads and reducer threads
     - Internal Datastructures that is used to pass key value pairs from mapper to reducer 
 
-
+- number of threads should be cores/processors on the system + 1 for now [configurable]. 
 
 
 # References
@@ -46,6 +46,8 @@ number of reduce worker threads
 # TODO
 - Optimization
     - [ ] Replace paritions with hashtable implementation  (  )
+
+- [  ] Sort the lists in each partitions for iterator ( based on key  )
 - [  ] Iterator to iterate over paritions list 
 - [  ] Getter method to get all pairs of key value pair  
 - [  ] Threadpool for reducer and mapper threads

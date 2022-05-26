@@ -8,15 +8,18 @@
 #include<time.h>
 #include<stdarg.h>
 #include<pthread.h>
-#include "main.h"
 
-// NOTE : Untoptimized Disk Code
-// TODO : Use hashmap
-// Global variables
+#include "container.h"
+
+
+// main TODO : container should have mutex
+
+
 struct Disk disk; 
 
+//FIXME: add mutex
 void add_partition(struct Part * partitions, int partition_num, struct Pair * pair){ 
-    assert(partition_num >0);
+    assert(partition_num > 0);
 
     struct Part * partition =  &partitions[partition_num]; // get the particular partition
     int size = partition-> size ;  
@@ -30,9 +33,11 @@ void add_partition(struct Part * partitions, int partition_num, struct Pair * pa
 
 
 
-void add_pair(struct Part * partitions, int partition_num, char * key , int value) { 
+//FIXME: add mutex
+void add_pair(int partition_num, char * key , int value) { 
     assert(partition_num > 0 );
-
+    struct Part * partitions = disk.partitions; 
+    pthread_mutex_lock(&)
     struct Pair * tmp = (struct Pair *)malloc(sizeof(struct Pair)) ;
     if (tmp == NULL) { 
         exit(1); 
@@ -47,6 +52,7 @@ void add_pair(struct Part * partitions, int partition_num, char * key , int valu
  * count : total number of paritions
  * Disk = pointer to disk struct 
  */
+//FIXME: add mutex
 void init(int count, struct Disk *disk) { 
     assert(count > 0); 
     disk -> count = count ; 
@@ -54,6 +60,7 @@ void init(int count, struct Disk *disk) {
     if (disk -> partitions == NULL) { 
         exit(1);  // exit with failure
     }
+    pthread_mutex_init(&disk->disk_lock, NULL);
 }
 
 void printer( struct Disk *disk ) { 
@@ -62,12 +69,14 @@ void printer( struct Disk *disk ) {
     }
 }
 
+//FIXME: add mutex
 void partition_marker(struct Disk *disk) { 
     for(int i = 0 ;i < disk -> count ; i++) { 
         disk->partitions[i].num = i ; 
     }
 }
 
+//FIXME: add mutex
 void partition_printer(struct Disk *disk, int partition_num)  { 
     // get partition
     struct Part  partition = disk -> partitions[partition_num]; 
@@ -89,6 +98,7 @@ void partition_printer(struct Disk *disk, int partition_num)  {
     printf("\n");
 } 
 
+//FIXME: add mutex
 void print_disk(struct Disk *disk) { 
     int size = disk -> count ; 
     for(int i = 0 ; i < size ; i++) { 
