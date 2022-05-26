@@ -1,6 +1,6 @@
 
-#ifndef CONTAINER_H_
-#define CONTAINER_H_
+#ifndef __container_h__
+#define __container_h__
 struct Node { 
     char *key ; 
     int count ; 
