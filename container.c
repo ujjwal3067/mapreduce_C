@@ -32,9 +32,8 @@ void add_partition(struct Part * partitions, int partition_num, struct Pair * pa
 }
 
 
-
 //FIXME: add mutex
-void add_pair(int partition_num, char * key , int value) { 
+void add_pair(Disk *disk ,  int partition_num, char * key , int value) { 
     assert(partition_num > 0 );
     struct Part * partitions = disk.partitions; 
     pthread_mutex_lock(&)
@@ -109,15 +108,15 @@ void print_disk(struct Disk *disk) {
 }
 
 
-/*int test () { 
+int main () { 
     init(3 , &disk);
     printf("disk count  = : %d\n", disk.count);
     partition_marker(&disk);
     // printer(&disk);
     printf("adding new element to the container 1 : \n");
-    add_pair(disk.partitions , 0, "first", 99);
-    add_pair(disk.partitions , 0, "second", 22);
-    add_pair(disk.partitions , 1, "first in second container", 32);
+    add_pair(disk, 0, "first", 99);
+    add_pair(disk, 0, "second", 22);
+    add_pair(disk, 1, "first in second container", 32);
     printf("\n");
     printer(&disk);
 
@@ -126,4 +125,4 @@ void print_disk(struct Disk *disk) {
     printf("================\n");
     return  0 ; 
 }
-*/
+

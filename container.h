@@ -1,6 +1,6 @@
 
-#ifndef __container_h__
-#define __container_h__
+#ifndef CONTAINER_H_
+#define CONTAINER_H_
 
 struct Pair { 
     char* key ;  
@@ -17,13 +17,13 @@ struct Part {
 struct Disk { 
     int count ;
     struct Part *partitions;
-    pthread_mutex_t disk_lock; 
+    pthread_mutex_t disk_lock;  
 
 }; 
 
 
 // function prototypes
-void add_pair( int parition_num , char * key, int value);
+void add_pair(int parition_num , char * key, int value);
 void add_parition( int parition_num , struct Disk *disk  );
 void init( int count , struct Disk *disk );
 void printer (struct Disk *disk); 

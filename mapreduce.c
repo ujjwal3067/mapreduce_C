@@ -38,7 +38,7 @@ void Reduce(char *key, Getter get_next, int partition_number) {
 }
 
 void MR_Emit(char *key, int value) { 
-    unsigned long container_hash = MR_DefaultHashPartition(key, num_partitions);
+    int container_hash = (int)MR_DefaultHashPartition(key, num_partitions);
     add_pair(container_hash, key, value);
 }
 
@@ -53,17 +53,16 @@ unsigned long MR_DefaultHashPartition(char *key, int num_partitions) {
 // First entry point of the computation 
 void
 MR_Run(int argc, char *argv[], 
-
 	    Mapper map, int num_mappers, 
 	    Reducer reduce, int num_reducers, 
         Partitioner partition) { 
 
-// create a linked list of the filenames for the threads to pick to run Map function 
-// create a data structure that has linked list of filesname and mutex for concurrent processing
+    // TODO:
 
 }
 
 
+// This function is called  when programme terminates
 void on_exit_call(char * message) { 
     printf("ERROR : %s\n", message);
 }
@@ -73,4 +72,3 @@ int main(int argc, char *argv[]) {
     // map and reduce are user defined function ( that uses mapreduce parallelization)  
     MR_Run(argc, argv, Map, 10, Reduce, 10, MR_DefaultHashPartition);
 }
-

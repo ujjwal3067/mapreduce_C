@@ -44,10 +44,20 @@ number of reduce worker threads
 
 
 # TODO
+
+### maybe
 - Optimization
     - [ ] Replace paritions with hashtable implementation  (  )
 
-- [  ] Sort the lists in each partitions for iterator ( based on key  )
+
+### Backlog
+
+- [  ] Sort the lists in each partitions for iterator ( based on key)
 - [  ] Iterator to iterate over paritions list 
 - [  ] Getter method to get all pairs of key value pair  
 - [  ] Threadpool for reducer and mapper threads
+
+### Doing
+- [-] Mutex for container Disk structure
+
+### Done

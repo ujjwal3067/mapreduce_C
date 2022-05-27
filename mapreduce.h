@@ -1,6 +1,5 @@
-#ifndef __mapreduce_h__
-#define __mapreduce_h__
-
+#ifndef MAPREDUCE_h_ 
+#define MAPREDUCE_h_ 
 
 
 // Different function pointer types used by MR
@@ -23,6 +22,4 @@ void MR_Run(int argc, char *argv[],
 	    Mapper map, int num_mappers, 
 	    Reducer reduce, int num_reducers, 
 	    Partitioner partition);
-
-
-#endif // __mapreduce_h__
+#endif 
