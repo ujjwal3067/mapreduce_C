@@ -39,7 +39,7 @@ void Reduce(char *key, Getter get_next, int partition_number) {
 
 void MR_Emit(char *key, int value) { 
     int container_hash = (int)MR_DefaultHashPartition(key, num_partitions);
-    add_pair(container_hash, key, value);
+    //add_pair(container_hash, key, value); //BUG: 
 }
 
 unsigned long MR_DefaultHashPartition(char *key, int num_partitions) { 

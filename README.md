@@ -58,6 +58,8 @@ number of reduce worker threads
 - [  ] Threadpool for reducer and mapper threads
 
 ### Doing
-- [-] Mutex for container Disk structure
+- [  ] Unoptimized iterator for the disk  
+
 
 ### Done
+- [X] Mutex for container Disk structure
