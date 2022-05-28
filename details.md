@@ -222,7 +222,8 @@ unsigned long MR_DefaultHashPartition(char *key, int num_partitions) {
         hash = hash * 33 + c;
     return hash % num_partitions;
 }
-```
+
+
 
 The function's role is to take a given `key` and map it to a number, from `0`
 to `num_partitions - 1`. Its use is internal to the MapReduce library, but

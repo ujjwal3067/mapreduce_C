@@ -1,6 +1,10 @@
 #ifndef CONTAINER_H_
 #define CONTAINER_H_
 
+struct Node { 
+
+}
+
 struct Pair { 
     char* key ;  
     int count ;   

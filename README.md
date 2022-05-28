@@ -58,6 +58,7 @@ number of reduce worker threads
 - [  ] Threadpool for reducer and mapper threads
 
 ### Doing
+
 - [  ] Unoptimized iterator for the disk  
 
 
